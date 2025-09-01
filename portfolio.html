@@ -1,0 +1,283 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rishika Rani | Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <style>
+    /* Body text */
+    body {
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px; 
+      line-height: 2;
+      color: #f5f5f5;
+      display: flex;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 30%;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      padding: 20px;
+      border-left: 2px solid #444;
+    }
+
+    .sidebar img {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Main content */
+    .main {
+      width: 70%;
+      padding: 30px;
+      margin-right: 30%;
+      scroll-behavior: smooth;
+    }
+
+    /* Header navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 24px; 
+      text-align: center;
+      z-index: 1000;
+      font-size: 26px; 
+      font-family: "Segoe UI", Tahoma, sans-serif;
+    }
+
+    header a {
+      color: #00eaff;
+      text-decoration: none;
+      margin: 0 22px;
+      font-weight: 700;
+      font-size: 22px;
+      transition: 0.3s;
+    }
+
+    header a:hover {
+      color: #ffcc00;
+    }
+
+    /* Sections */
+    section {
+      padding: 70px 0;
+      border-bottom: 1px solid #444;
+      opacity: 0;
+      transform: translateY(50px) scale(0.95);
+      transition: all 0.8s ease-in-out;
+      clip-path: inset(0 0 100% 0);
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      clip-path: inset(0 0 0 0);
+    }
+
+    /* Section titles */
+    h2 {
+      color: #ffcc00;
+      margin-bottom: 28px;
+      font-size: 42px; 
+      font-family: "Dancing Script", cursive; 
+      transition: all 0.3s ease-in-out;
+    }
+
+    h2:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 8px #ffcc00, 0 0 12px #ffcc00;
+      cursor: default;
+    }
+
+    /* Certificates */
+    .certificates img {
+      width: 100%;
+      margin-bottom: 28px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Paragraphs & lists */
+    p, li {
+      font-family: "Roboto", sans-serif;
+      font-size: 24px; 
+    }
+
+    /* Highlight name */
+    .highlight-name {
+      font-family: "Dancing Script", cursive;
+      font-size: 32px;
+      color: #ffcc00;
+    }
+
+    /* LinkedIn link */
+    #achievements a {
+      color: white; 
+      font-weight: 500;
+      font-size: 24px;
+      text-decoration: underline;
+      transition: 0.3s;
+      font-family: "Roboto", sans-serif;
+    }
+
+    #achievements a:hover {
+      color: #00eaff; 
+    }
+
+    /* Intro video */
+    #intro video {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+      margin-bottom: 30px;
+    }
+    #intro h2 {
+      font-family: "Dancing Script", cursive;
+      color: #ffcc00;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <img src="me.jpg" alt="Rishika Rani">
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <header>
+      <a href="#intro">Intro</a>
+      <a href="#about">About Me</a>
+      <a href="#education">Education</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#skills">Skills</a>
+      <a href="#research">Research Papers</a>
+      <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
+    </header>
+
+    <!-- Intro Section -->
+    <section id="intro">
+      <h2>Welcome</h2>
+      <video autoplay muted loop controls>
+        <source src="AI.mp4" type="video/mp4"> <!-- CHANGE YOUR VIDEO NAME HERE -->
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello! I’m <span class="highlight-name">Rishika Rani</span>, a passionate <b>BCA (AI & ML)</b> student aspiring to become a future-ready Software Developer. 
+         I love creating <b>modern websites</b>, solving <b>complex problems</b>, exploring <b>new technologies</b>, and designing AI-based solutions.</p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <p><b>Bachelor of Computer Applications (AI & ML)</b><br>
+         Baba Farid Group of Institute, 2024–2027</p>
+    </section>
+
+    <section id="certificates" class="certificates">
+      <h2>Certificates</h2>
+      <img src="6.jpg" alt="Certificate 6">
+      <img src="5.png" alt="Certificate 5">
+      <img src="3.png" alt="Certificate 3">
+      <img src="4.png" alt="Certificate 4">
+      <img src="res2.jpg" alt="Certificate 7">
+      <img src="2.png" alt="Certificate 2">
+      <img src="1.jpg" alt="Certificate 1">
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p><b>Programming Languages:</b> C, C++, Java, Python, HTML, CSS</p>
+      <p><b>Core Knowledge:</b> Data Structures, Canva Graphic Design</p>
+      <p><b>Soft Skills:</b> Teamwork, Time Management, Leadership, Communication</p>
+    </section>
+
+    <section id="research">
+      <h2>Research Papers</h2>
+      <p>📑 I have published 2 research papers and one is currently in progress.</p>
+      <div class="certificates">
+        <img src="res1.jpg" alt="Research Paper 1">
+        <img src="res3.jpg" alt="Research Paper 2">
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p><b>Baba Farid College Website Front Page</b><br>
+      Tech Stack: HTML, CSS, Java</p>
+    </section>
+
+    <section id="achievements">
+      <h2>Achievements</h2>
+      <p>🏆 <b>1st Position</b> in Entrepreneur Course</p>
+      <img src="w.jpg" alt="Prize Certificate" width="900">
+      <img src="w2.jpg" alt="Prize Certificate" width="900">
+      <img src="w3.jpg" alt="Prize Certificate" width="900">
+      <p><a href="https://www.linkedin.com/in/rishika-rani" target="_blank">LinkedIn</a></p>
+    </section>
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("header a");
+
+    // Scroll reveal
+    window.addEventListener("scroll", () => {
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          sec.classList.add("show");
+        }
+      });
+    });
+
+    // Block animation on nav click
+    navLinks.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        sections.forEach(sec => {
+          sec.style.transition = "none";
+          sec.style.clipPath = "inset(0 0 100% 0)";
+          sec.style.opacity = 0;
+          sec.classList.remove("show");
+        });
+
+        targetSection.scrollIntoView({ behavior: "smooth" });
+
+        setTimeout(() => {
+          targetSection.style.transition = "clip-path 0.8s ease-out, opacity 0.8s ease-out";
+          targetSection.style.clipPath = "inset(0 0 0 0)";
+          targetSection.style.opacity = 1;
+          targetSection.classList.add("show");
+        }, 150);
+      });
+    });
+  </script>
+
+</body>
+</html>
