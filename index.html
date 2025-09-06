@@ -1,4 +1,4 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,12 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Dancing+Script&display=swap" rel="stylesheet">
 
   <style>
-    /* Body text */
+    /* Body */
     body {
       margin: 0;
       font-family: "Roboto", sans-serif;
-      font-size: 24px; 
-      line-height: 2;
+      font-size: clamp(16px, 2vw, 22px);
+      line-height: 1.8;
       color: #f5f5f5;
       display: flex;
       background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
@@ -33,6 +33,7 @@
       bottom: 0;
       padding: 20px;
       border-left: 2px solid #444;
+      z-index: 1100;
     }
 
     .sidebar img {
@@ -54,19 +55,21 @@
       position: sticky;
       top: 0;
       background: rgba(0, 0, 0, 0.9);
-      padding: 24px; 
-      text-align: center;
+      padding: 16px 20px;
       z-index: 1000;
-      font-size: 26px; 
       font-family: "Segoe UI", Tahoma, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
     header a {
       color: #00eaff;
       text-decoration: none;
-      margin: 0 22px;
       font-weight: 700;
-      font-size: 22px;
+      font-size: clamp(14px, 2vw, 20px);
       transition: 0.3s;
     }
 
@@ -74,9 +77,39 @@
       color: #ffcc00;
     }
 
+    /* Hamburger menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links.active {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
     /* Sections */
     section {
-      padding: 70px 0;
+      padding: 60px 0;
       border-bottom: 1px solid #444;
       opacity: 0;
       transform: translateY(50px) scale(0.95);
@@ -93,10 +126,11 @@
     /* Section titles */
     h2 {
       color: #ffcc00;
-      margin-bottom: 28px;
-      font-size: 42px; 
-      font-family: "Dancing Script", cursive; 
+      margin-bottom: 24px;
+      font-size: clamp(22px, 4vw, 42px);
+      font-family: "Dancing Script", cursive;
       transition: all 0.3s ease-in-out;
+      text-align: center;
     }
 
     h2:hover {
@@ -105,39 +139,44 @@
       cursor: default;
     }
 
-    /* Certificates */
+    /* Certificates & Research images in grid */
+    .certificates {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
     .certificates img {
       width: 100%;
-      margin-bottom: 28px;
       border-radius: 12px;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     }
 
-    /* Paragraphs & lists */
+    /* Paragraphs */
     p, li {
       font-family: "Roboto", sans-serif;
-      font-size: 24px; 
+      font-size: clamp(16px, 2vw, 22px);
+      line-height: 1.6;
     }
 
     /* Highlight name */
     .highlight-name {
       font-family: "Dancing Script", cursive;
-      font-size: 32px;
+      font-size: clamp(20px, 3vw, 32px);
       color: #ffcc00;
     }
 
     /* LinkedIn link */
     #achievements a {
-      color: white; 
+      color: white;
       font-weight: 500;
-      font-size: 24px;
+      font-size: clamp(16px, 2vw, 22px);
       text-decoration: underline;
       transition: 0.3s;
-      font-family: "Roboto", sans-serif;
     }
 
     #achievements a:hover {
-      color: #00eaff; 
+      color: #00eaff;
     }
 
     /* Intro video */
@@ -147,11 +186,56 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.6);
       margin-bottom: 30px;
     }
-    #intro h2 {
-      font-family: "Dancing Script", cursive;
-      color: #ffcc00;
-      font-size: 40px;
-      margin-bottom: 20px;
+
+    /* ===== Responsive ===== */
+    @media (max-width: 992px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-left: none;
+        border-bottom: 2px solid #444;
+      }
+
+      .main {
+        width: 100%;
+        margin-right: 0;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header a {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .sidebar img {
+        max-width: 150px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
     }
   </style>
 </head>
@@ -165,21 +249,28 @@
   <!-- Main Content -->
   <div class="main">
     <header>
-      <a href="#intro">Intro</a>
-      <a href="#about">About Me</a>
-      <a href="#education">Education</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#skills">Skills</a>
-      <a href="#research">Research Papers</a>
-      <a href="#projects">Projects</a>
-      <a href="#achievements">Achievements</a>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="nav-links">
+        <a href="#intro">Intro</a>
+        <a href="#about">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#skills">Skills</a>
+        <a href="#research">Research Papers</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+      </nav>
     </header>
 
     <!-- Intro Section -->
     <section id="intro">
       <h2>Welcome</h2>
       <video autoplay muted loop controls>
-        <source src="AI.mp4" type="video/mp4"> <!-- CHANGE YOUR VIDEO NAME HERE -->
+        <source src="AI.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </section>
@@ -232,18 +323,17 @@
     <section id="achievements">
       <h2>Achievements</h2>
       <p>🏆 <b>1st Position</b> in Entrepreneur Course</p>
-      <img src="w.jpg" alt="Prize Certificate" width="900">
-      <img src="w2.jpg" alt="Prize Certificate" width="900">
-      <img src="w3.jpg" alt="Prize Certificate" width="900">
+      <img src="w.jpg" alt="Prize Certificate" width="100%">
+      <img src="w2.jpg" alt="Prize Certificate" width="100%">
+      <img src="w3.jpg" alt="Prize Certificate" width="100%">
       <p><a href="https://www.linkedin.com/in/rishika-rani" target="_blank">LinkedIn</a></p>
     </section>
   </div>
 
+  <!-- JS -->
   <script>
+    // Section reveal on scroll
     const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("header a");
-
-    // Scroll reveal
     window.addEventListener("scroll", () => {
       sections.forEach(sec => {
         const rect = sec.getBoundingClientRect();
@@ -253,30 +343,20 @@
       });
     });
 
-    // Block animation on nav click
+    // Smooth scroll + animation reset
+    const navLinks = document.querySelectorAll("header a");
     navLinks.forEach(link => {
       link.addEventListener("click", e => {
         e.preventDefault();
         const targetId = link.getAttribute("href").substring(1);
-        const targetSection = document.getElementById(targetId);
-
-        sections.forEach(sec => {
-          sec.style.transition = "none";
-          sec.style.clipPath = "inset(0 0 100% 0)";
-          sec.style.opacity = 0;
-          sec.classList.remove("show");
-        });
-
-        targetSection.scrollIntoView({ behavior: "smooth" });
-
-        setTimeout(() => {
-          targetSection.style.transition = "clip-path 0.8s ease-out, opacity 0.8s ease-out";
-          targetSection.style.clipPath = "inset(0 0 0 0)";
-          targetSection.style.opacity = 1;
-          targetSection.classList.add("show");
-        }, 150);
+        document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
       });
     });
+
+    // Hamburger menu toggle
+    function toggleMenu() {
+      document.querySelector(".nav-links").classList.toggle("active");
+    }
   </script>
 
 </body>
